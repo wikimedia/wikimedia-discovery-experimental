@@ -98,7 +98,7 @@ download_file() {
   fi
   if [ "$INSTALL_DIST_FILE_STATE" = "installed" -o "$SKIP_APT_UPDATE" != "1" ]; then
     echo "Updating APT..."
-    apt-get update && apt-get -y upgrade
+    apt-get update
   fi
 
   echo "Installing packages..."
