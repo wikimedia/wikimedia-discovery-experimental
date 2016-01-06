@@ -124,6 +124,7 @@ download_file() {
   install_r_package lubridate
   install_r_package data.table
   install_r_package devtools
+  install_r_package forecast
   # ^ Needed for installation from Git
   git_install_r_package https://gerrit.wikimedia.org/r/wikimedia/discovery/polloi
 
