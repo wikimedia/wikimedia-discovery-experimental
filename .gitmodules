@@ -1,3 +1,6 @@
 [submodule "shiny-server/forecast"]
 	path = shiny-server/forecast
 	url = https://github.com/bearloga/wmf-delphi.git
+[submodule "shiny-server/portal"]
+	path = shiny-server/portal
+	url = https://github.com/wikimedia-research/Discovery-Portal-Dashboard-Languages.git

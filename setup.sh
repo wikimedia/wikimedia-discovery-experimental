@@ -124,9 +124,13 @@ download_file() {
   install_r_package lubridate
   install_r_package data.table
   install_r_package devtools
+  install_r_package xml2
+  install_r_package rvest
+  install_r_package flexdashboard
   install_r_package forecast
   # ^ Needed for installation from Git
   git_install_r_package https://gerrit.wikimedia.org/r/wikimedia/discovery/polloi
+  github_install_r_package aoles/shinyURL
 
   echo "Installing shiny-server..."
   if [ ! -d /opt/shiny-server ]; then
