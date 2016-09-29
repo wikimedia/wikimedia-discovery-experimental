@@ -54,9 +54,9 @@ Follow [the instructions for setting up your instance with MediaWiki-Vagrant](ht
 ```bash
 sudo git clone https://gerrit.wikimedia.org/r/wikimedia/discovery/experimental /srv/dashboards
 cd /srv/dashboards
-sudo git submodule foreach git pull origin master
-# sudo vagrant up
-# sudo chown -R mwvagrant .vagrant
+sudo git submodule update --init --recursive
+sudo vagrant up
+sudo chown -R mwvagrant .vagrant
 vagrant up
 ```
 

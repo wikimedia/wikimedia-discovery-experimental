@@ -102,11 +102,12 @@ download_file() {
 
 
   echo "Installing apt repositories..."
+  apt-get -y install gettext
   install_dist_template \
       $PROJECT_ROOT/files/etc_apt_sources.list.d_rproject.list \
       /etc/apt/sources.list.d/rproject.list
   if [ "$INSTALL_DIST_FILE_STATE" = "installed" ]; then
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
   fi
   if [ "$INSTALL_DIST_FILE_STATE" = "installed" -o "$SKIP_APT_UPDATE" != "1" ]; then
     echo "Updating APT..."
@@ -114,7 +115,7 @@ download_file() {
   fi
   
   echo "Upgrading installed software packages..."
-  apt-get upgrade
+  apt-get -y upgrade
 
   echo "Installing packages..."
   apt-get -y install gfortran libssl-dev libcurl4-openssl-dev libxml2-dev libssh2-1-dev libcairo2-dev \
