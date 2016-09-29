@@ -31,7 +31,7 @@ export LOG_ROOT=$PROJECT_ROOT/log
 install_r_package() {
   local TARGET="/usr/local/lib/R/site-library/$1"
   if [ ! -d "$TARGET" ]; then
-    /usr/bin/R -e "install.packages('$1', repos='https://cran.rstudio.com'); q(save = 'no')"
+    /usr/bin/R -e "install.packages('$1', repos='https://cran.rstudio.com')"
     test -d $TARGET
     RESTART_SHINY=1
   fi
@@ -43,10 +43,14 @@ git_install_r_package() {
   local PKG=$(echo $1 | sed 's=.*/\(.*\)$=\1=')
   local TARGET="/usr/local/lib/R/site-library/${PKG}"
   if [ ! -d "$TARGET" ]; then
-    /usr/bin/R -e "devtools::install_git('$1', dependencies = TRUE, lib = '/usr/local/lib/R/site-library'); q(save = 'no')"
+    /usr/bin/R -e "devtools::install_git('$1', dependencies = TRUE, lib = '/usr/local/lib/R/site-library')"
     test -d $TARGET
     RESTART_SHINY=1
   fi
+}
+
+update_r_package() {
+  /usr/bin/R -e "devtools::update_packages('$1', dependencies = TRUE)"
 }
 
 install_dist_template() {
@@ -130,7 +134,7 @@ download_file() {
   install_r_package forecast
   # ^ Needed for installation from Git
   git_install_r_package https://gerrit.wikimedia.org/r/wikimedia/discovery/polloi
-  github_install_r_package aoles/shinyURL
+  update_r_package polloi
 
   echo "Installing shiny-server..."
   if [ ! -d /opt/shiny-server ]; then
