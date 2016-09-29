@@ -132,6 +132,9 @@ download_file() {
   install_r_package rvest
   install_r_package flexdashboard
   install_r_package forecast
+  install_r_package shinyjs
+  install_r_package googleCharts
+  install_r_package reshape2
   # ^ Needed for installation from Git
   git_install_r_package https://gerrit.wikimedia.org/r/wikimedia/discovery/polloi
   update_r_package polloi
