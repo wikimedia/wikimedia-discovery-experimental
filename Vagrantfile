@@ -68,6 +68,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :lxc do |lxc, override|
     override.vm.box = 'Wikimedia/trusty64-puppet-lxc'
   end
+  
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
+    s.privileged = false
+    s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+  end
 
   config.vm.provision "shell", path: "./setup.sh"
 

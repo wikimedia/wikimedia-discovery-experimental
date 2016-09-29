@@ -10,9 +10,9 @@ All of the following is done on your local clone of this repo. Once the updated 
 
 ### Adding
 
-```
-$ git submodule add <URL to repo>.git shiny-server/<name>
-$ git submodule update --init --recursive
+```bash
+git submodule add <URL to repo>.git shiny-server/<name>
+git submodule update --init --recursive
 ```
 
 ### Updating the dashboards in this repository
@@ -22,17 +22,17 @@ provisions the dashboards, not the dashboard itself. The dashboards
 are kept as git submodules. To point the submodules at the latest
 versions, use the following command:
 
-```
-$ git submodule foreach git pull origin master
+```bash
+git submodule foreach git pull origin master
 ```
 
 Please remember to describe the changes in [CHANGELOG.md](CHANGELOG.md), then:
 
-```
-$ git add -A
-$ git commit -m "Updating dashboards..."
-$ git review
-$ <git add -A && git commit --amend && git review>
+```bash
+git add -A
+git commit -m "Updating dashboards..."
+git review
+<git add -A && git commit --amend && git review>
 ```
 
 ## Testing
@@ -46,6 +46,19 @@ vagrant up
 ```
 
 Then go to [http://localhost:3838](http://localhost:3838) to see if it works.
+
+## Production
+
+Follow [the instructions for setting up your instance with MediaWiki-Vagrant](https://wikitech.wikimedia.org/wiki/Help:MediaWiki-Vagrant_in_Labs#Setting_up_your_instance_with_MediaWiki-Vagrant). Specifically, add "role::labs::vagrant_lxc" and run `sudo puppet agent --test --verbose`
+
+```bash
+sudo git clone https://gerrit.wikimedia.org/r/wikimedia/discovery/experimental /srv/dashboards
+cd /srv/dashboards
+sudo git submodule foreach git pull origin master
+# sudo vagrant up
+# sudo chown -R mwvagrant .vagrant
+vagrant up
+```
 
 ## Additional information
 
