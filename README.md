@@ -35,6 +35,18 @@ $ git review
 $ <git add -A && git commit --amend && git review>
 ```
 
+## Testing
+
+Download and install [Vagrant](https://www.vagrantup.com/downloads.html) & [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+
+```
+git clone ssh://[LDAP username]@gerrit.wikimedia.org:29418/wikimedia/discovery/experimental /path/to/clone/to
+cd /path/to/clone/to
+vagrant up
+```
+
+Then go to [http://localhost:3838](http://localhost:3838) to see if it works.
+
 ## Additional information
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
