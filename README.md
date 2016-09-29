@@ -39,7 +39,7 @@ git review
 
 Download and install [Vagrant](https://www.vagrantup.com/downloads.html) & [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-```
+```bash
 git clone ssh://[LDAP username]@gerrit.wikimedia.org:29418/wikimedia/discovery/experimental /path/to/clone/to
 cd /path/to/clone/to
 vagrant up
@@ -50,6 +50,8 @@ Then go to [http://localhost:3838](http://localhost:3838) to see if it works.
 ## Production
 
 Follow [the instructions for setting up your instance with MediaWiki-Vagrant](https://wikitech.wikimedia.org/wiki/Help:MediaWiki-Vagrant_in_Labs#Setting_up_your_instance_with_MediaWiki-Vagrant). Specifically, add "role::labs::vagrant_lxc" and run `sudo puppet agent --test --verbose`
+
+Log out and log back in.
 
 ```bash
 sudo git clone https://gerrit.wikimedia.org/r/wikimedia/discovery/experimental /srv/dashboards

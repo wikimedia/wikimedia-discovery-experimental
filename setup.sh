@@ -100,7 +100,6 @@ download_file() {
     ln -s /vagrant/cache/apt /var/cache/apt/archives
   fi
 
-
   echo "Installing apt repositories..."
   apt-get -y install gettext
   install_dist_template \
