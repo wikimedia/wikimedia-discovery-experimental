@@ -151,7 +151,7 @@ download_file() {
   install_r_package shinydashboard
   install_r_package flexdashboard
   install_r_package shinyjs
-  github_install_r_package jcheng5/googleCharts
+  install_r_package highcharter
   git_install_r_package https://gerrit.wikimedia.org/r/wikimedia/discovery/polloi
   # Statistical modeling:
   install_r_package forecast
