@@ -1,6 +1,3 @@
 [submodule "shiny-server/forecast"]
 	path = shiny-server/forecast
 	url = https://github.com/bearloga/wmf-delphi.git
-[submodule "shiny-server/poultry"]
-	path = shiny-server/poultry
-	url = https://github.com/chelsyx/wmf-poultry.git
