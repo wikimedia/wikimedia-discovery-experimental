@@ -2,7 +2,7 @@
 
 This is a collection of in-progress dashboards and tools for exploring new features and data from Wikimedia Discovery team's services. These dashboards include graphs for features that other teams want to make themselves (but aren't high priority enough to get full analyst support) and trying out new dashboard features that may be hard and/or fragile.
 
-The homepage for this project is [http://discovery-experimental.wmflabs.org/](http://discovery-experimental.wmflabs.org/)
+The homepage for this project is [https://discovery-experimental.wmflabs.org/](http://discovery-experimental.wmflabs.org/)
 
 ## Dashboards as submodules
 
