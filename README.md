@@ -1,66 +1,6 @@
 # Experimental Discovery Dashboards
 
-This is a collection of in-progress dashboards and tools for exploring new features and data from Wikimedia Discovery team's services. These dashboards include graphs for features that other teams want to make themselves (but aren't high priority enough to get full analyst support) and trying out new dashboard features that may be hard and/or fragile.
-
-The homepage for this project is [https://discovery-experimental.wmflabs.org/](http://discovery-experimental.wmflabs.org/)
-
-## Dashboards as submodules
-
-All of the following is done on your local clone of this repo. Once the updated references (hashes) have been merged, a script (that runs frequently) will pull the new versions and restart Shiny Server.
-
-### Adding
-
-```bash
-git submodule add <URL to repo>.git shiny-server/<name>
-git submodule update --init --recursive
-```
-
-### Updating the dashboards in this repository
-
-This repository contains only the code that wraps around and
-provisions the dashboards, not the dashboard itself. The dashboards
-are kept as git submodules. To point the submodules at the latest
-versions, use the following command:
-
-```bash
-git submodule foreach git pull origin master
-```
-
-Please remember to describe the changes in [CHANGELOG.md](CHANGELOG.md), then:
-
-```bash
-git add -A
-git commit -m "Updating dashboards..."
-git review
-<git add -A && git commit --amend && git review>
-```
-
-## Testing
-
-Download and install [Vagrant](https://www.vagrantup.com/downloads.html) & [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-
-```bash
-git clone ssh://[LDAP username]@gerrit.wikimedia.org:29418/wikimedia/discovery/experimental /path/to/clone/to
-cd /path/to/clone/to
-vagrant up
-```
-
-Then go to [http://localhost:3838](http://localhost:3838) to see if it works.
-
-## Production
-
-Follow [the instructions for setting up your instance with MediaWiki-Vagrant](https://wikitech.wikimedia.org/wiki/Help:MediaWiki-Vagrant_in_Labs#Setting_up_your_instance_with_MediaWiki-Vagrant). Specifically, add "role::labs::vagrant_lxc" and run `sudo puppet agent --test --verbose`
-
-Log out and log back in.
-
-```bash
-sudo git clone https://gerrit.wikimedia.org/r/wikimedia/discovery/experimental /srv/dashboards
-cd /srv/dashboards
-sudo git submodule update --init --recursive
-sudo vagrant up
-sudo chown -R mwvagrant .vagrant
-vagrant up
-```
+**Deprecation Notice**: This repository is no longer in use because we have switched to a [Puppet](https://phabricator.wikimedia.org/source/operations-puppet/)-based solution per [T161354](https://phabricator.wikimedia.org/T161354). In order to maintain a historical record, it has not been deleted. If you are interested in seeing how a version of this repo looks translated into Puppet, see [discovery\_dashboards::base](https://phabricator.wikimedia.org/source/operations-puppet/browse/production/modules/profile/manifests/discovery_dashboards/base.pp), [discovery\_dashboards::production](https://phabricator.wikimedia.org/source/operations-puppet/browse/production/modules/profile/manifests/discovery_dashboards/production.pp), and [shiny\_server module](https://phabricator.wikimedia.org/source/operations-puppet/browse/production/modules/shiny_server/).
 
 ## Additional information
 
